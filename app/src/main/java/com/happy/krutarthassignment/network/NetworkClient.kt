@@ -13,8 +13,8 @@ class NetworkClient {
         val instance:Retrofit
         get()  {
             if (retroFit == null) {
-                var httpClient = OkHttpClient.Builder()
-                Retrofit.Builder()
+                val httpClient = OkHttpClient.Builder()
+                retroFit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient.build())

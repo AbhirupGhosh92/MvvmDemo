@@ -32,5 +32,5 @@ data class ResponseModel(
 	val username: String? = null,
 
 	@ColumnInfo(name = "favourite") @field:SerializedName("favourite")
-	val favourite: Boolean = false
+	var favourite: Boolean = false
 )

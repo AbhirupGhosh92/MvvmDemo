@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.fragment.app.ListFragment
 import com.happy.krutarthassignment.fragment.FavouriteFragment
+import com.happy.krutarthassignment.fragment.MainListFragment
 
 class CustomViewPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager,
     FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -17,7 +18,7 @@ class CustomViewPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePa
 
         if(position == 0)
         {
-            fragment = ListFragment()
+            fragment = MainListFragment()
         }
         else
         {
@@ -30,5 +31,9 @@ class CustomViewPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePa
 
     override fun getCount(): Int {
         return nums.size
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return nums[position]
     }
 }

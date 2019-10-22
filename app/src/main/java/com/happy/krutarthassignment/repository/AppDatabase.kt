@@ -2,17 +2,17 @@ package com.happy.krutarthassignment.repository
 
 import android.content.Context
 import android.util.Log
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.happy.krutarthassignment.models.ResponseModel
 
 @Database(
     entities = [ResponseModel::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
+
+@TypeConverters(CustomTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao() : UserDao
@@ -36,7 +36,7 @@ abstract class AppDatabase : RoomDatabase() {
                             }
 
                             override fun onOpen(db: SupportSQLiteDatabase) {
-                                Log.d("AppDbdb", "Database opened")
+                                Log.d("AppDb.db", "Database opened")
                                 super.onOpen(db)
                             }
                         }).fallbackToDestructiveMigration()

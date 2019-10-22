@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
+        android:orientation="vertical"
         android:id="@+id/cl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,13 +19,12 @@
             app:tabPaddingEnd="5dp"
             app:tabMode="fixed"
             app:tabIndicatorHeight="3dp"
-            >
+            />
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
-        </com.google.android.material.tabs.TabLayout>
     </LinearLayout>
 
 </layout>
