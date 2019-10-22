@@ -18,7 +18,7 @@ class ListFragment: Fragment() , View.OnClickListener  {
     private var listFragmentBinding: ListFragmentBinding?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        listFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.list_fragment, container, false)
+        listFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.favourite_fragment, container, false)
         listFragmentBinding!!.executePendingBindings()
         view = listFragmentBinding!!.root
 

@@ -22,22 +22,8 @@ class FavouriteFragment: Fragment(), View.OnClickListener {
 
         favouriteFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.favourite_fragment, container, false)
         favouriteFragmentBinding?.executePendingBindings()
-        view = favouriteFragmentBinding?.root!!
 
-        init()
-
-        return view
-    }
-    fun init(){
-        initViews()
-        initListeners()
-    }
-
-    fun initViews(){
-    }
-
-    fun initListeners(){
-
+        return favouriteFragmentBinding?.root
     }
 
     override fun onClick(p0: View?) {

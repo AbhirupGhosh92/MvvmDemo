@@ -12,6 +12,9 @@ import com.happy.krutarthassignment.R
 import com.happy.krutarthassignment.databinding.TabFragmentBinding
 
 class TabFragment: Fragment() , View.OnClickListener  {
+    override fun onClick(p0: View?) {
+
+    }
 
     internal lateinit var view: View
     internal lateinit var mContext: Context
@@ -19,25 +22,17 @@ class TabFragment: Fragment() , View.OnClickListener  {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         tabFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.tab_fragment, container, false)
-        tabFragmentBinding!!.executePendingBindings()
-        view = tabFragmentBinding!!.root
-
-        init()
-        return view
+        tabFragmentBinding?.executePendingBindings()
+        return tabFragmentBinding?.root
     }
 
-    private fun init() {
-        initViews()
-        initListner()
+    override fun onResume() {
+        super.onResume()
+
+        tabFragmentBinding
+
     }
 
-    private fun initViews() {
-    }
 
-    private fun initListner(){
-    }
-
-    override fun onClick(p0: View?) {
-    }
 
 }
