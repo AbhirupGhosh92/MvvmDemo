@@ -7,20 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.happy.krutarthassignment.R
+import com.happy.krutarthassignment.databinding.ListFragmentBinding
 import com.happy.krutarthassignment.databinding.TabFragmentBinding
 
-class TabFragment: Fragment() , View.OnClickListener  {
+class ListFragment: Fragment() , View.OnClickListener  {
 
     internal lateinit var view: View
     internal lateinit var mContext: Context
-    private var tabFragmentBinding: TabFragmentBinding?=null
+    private var listFragmentBinding: ListFragmentBinding?=null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        tabFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.tab_fragment, container, false)
-        tabFragmentBinding!!.executePendingBindings()
-        view = tabFragmentBinding!!.root
+        listFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.list_fragment, container, false)
+        listFragmentBinding!!.executePendingBindings()
+        view = listFragmentBinding!!.root
 
         init()
         return view

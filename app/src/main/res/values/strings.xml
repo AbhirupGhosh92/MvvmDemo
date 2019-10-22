@@ -2,4 +2,7 @@
     <string name="app_name">KrutarthAssignment</string>
 
     <string name="splash_text">KrutarthAssignment</string>
+    <string name="txt_name">Krutarth Kalas</string>
+    <string name="txt_mail">kalaskrutarth@gmail.com</string>
+    <string name="txt_number">7972502603</string>
 </resources>
