@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import com.happy.krutarthassignment.R
-import com.happy.krutarthassignment.activity.fragment.TabFragment
+import com.happy.krutarthassignment.fragment.TabFragment
 import com.happy.krutarthassignment.databinding.ActivityMainBinding
 
 class DashboardActivity : AppCompatActivity() {
@@ -24,6 +24,8 @@ class DashboardActivity : AppCompatActivity() {
     private fun init()
     {
         fragmentManager =supportFragmentManager
-        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer, TabFragment())?.commit()
+        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
+            TabFragment()
+        )?.commit()
     }
 }

@@ -1,4 +1,4 @@
-package com.happy.krutarthassignment.activity.fragment
+package com.happy.krutarthassignment.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -7,37 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.happy.krutarthassignment.R
-import com.happy.krutarthassignment.databinding.TabFragmentBinding
+import com.happy.krutarthassignment.databinding.FavouriteFragmentBinding
 
-class TabFragment: Fragment() , View.OnClickListener  {
+class FavouriteFragment: Fragment(), View.OnClickListener {
 
+    private var favouriteFragmentBinding:FavouriteFragmentBinding?=null
     internal lateinit var view: View
     internal lateinit var mContext: Context
-    private var tabFragmentBinding: TabFragmentBinding?=null
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        tabFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.tab_fragment, container, false)
-        tabFragmentBinding!!.executePendingBindings()
-        view = tabFragmentBinding!!.root
+
+        favouriteFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.favourite_fragment, container, false)
+        favouriteFragmentBinding?.executePendingBindings()
+        view = favouriteFragmentBinding?.root!!
 
         init()
+
         return view
     }
-
-    private fun init() {
+    fun init(){
         initViews()
-        initListner()
+        initListeners()
     }
 
-    private fun initViews() {
+    fun initViews(){
     }
 
-    private fun initListner(){
+    fun initListeners(){
+
     }
 
     override fun onClick(p0: View?) {
     }
-
 }

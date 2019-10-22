@@ -1,4 +1,4 @@
-package com.happy.krutarthassignment.activity.fragment
+package com.happy.krutarthassignment.fragment
 
 import android.content.Context
 import android.os.Bundle
