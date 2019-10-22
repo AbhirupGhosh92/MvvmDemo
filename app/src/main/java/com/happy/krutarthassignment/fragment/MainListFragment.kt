@@ -17,6 +17,7 @@ import com.happy.krutarthassignment.adapters.CustomListAdapter
 import com.happy.krutarthassignment.databinding.FavouriteFragmentBinding
 import com.happy.krutarthassignment.databinding.ListFragmentBinding
 import com.happy.krutarthassignment.databinding.TabFragmentBinding
+import com.happy.krutarthassignment.models.ResponseModel
 import com.happy.krutarthassignment.repository.Repository
 import com.happy.krutarthassignment.viewmodels.SharedViewModel
 
@@ -27,6 +28,7 @@ class MainListFragment: Fragment() , View.OnClickListener  {
     private lateinit var listFragmentBinding: FavouriteFragmentBinding
     private lateinit var sharedViewModel: SharedViewModel
     private var adapter : CustomListAdapter?= null
+    private var userList = ArrayList<ResponseModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         listFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.favourite_fragment, container, false)
@@ -51,7 +53,7 @@ class MainListFragment: Fragment() , View.OnClickListener  {
     private fun renderUi()
     {
        sharedViewModel.getAllUsersFromCache(requireContext()).observe(viewLifecycleOwner, Observer {
-           if(it == null)
+           if(it.isNullOrEmpty())
            {
                sharedViewModel.initCacheFromServer(requireContext())
            }
@@ -59,7 +61,8 @@ class MainListFragment: Fragment() , View.OnClickListener  {
            {
                if(adapter == null)
                {
-                   adapter = CustomListAdapter(it)
+                   userList.addAll(it)
+                   adapter = CustomListAdapter(requireContext(),userList)
                    listFragmentBinding.rlFav.adapter = adapter
                    listFragmentBinding.rlFav.layoutManager = LinearLayoutManager(requireContext())
                    listFragmentBinding.rlFav.itemAnimator = DefaultItemAnimator()
@@ -67,6 +70,8 @@ class MainListFragment: Fragment() , View.OnClickListener  {
                }
                else
                {
+                   userList.clear()
+                   userList.addAll(it)
                    adapter?.notifyDataSetChanged()
                }
            }
