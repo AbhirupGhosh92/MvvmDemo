@@ -1,6 +1,7 @@
 package com.happy.krutarthassignment.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Address(
 
@@ -18,4 +19,4 @@ data class Address(
 
 	@field:SerializedName("street")
 	val street: String? = null
-)
+) : Serializable

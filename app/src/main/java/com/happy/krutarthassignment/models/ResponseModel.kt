@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity(tableName = "ResponseModel")
 data class ResponseModel(
@@ -33,4 +34,4 @@ data class ResponseModel(
 
 	@ColumnInfo(name = "favourite") @field:SerializedName("favourite")
 	var favourite: Boolean = false
-)
+): Serializable

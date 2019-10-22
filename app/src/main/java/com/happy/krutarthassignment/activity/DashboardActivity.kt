@@ -24,8 +24,9 @@ class DashboardActivity : AppCompatActivity() {
     private fun init()
     {
         fragmentManager =supportFragmentManager
-        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
+        fragmentManager?.beginTransaction()?.add(R.id.fragmentContainer,
             TabFragment()
-        )?.commit()
+        )?.addToBackStack(null)
+            ?.commit()
     }
 }

@@ -60,6 +60,16 @@ class FavouriteFragment: Fragment(), View.OnClickListener {
                         it.favourite
                     })
                     adapter = CustomListAdapter(requireContext(),userList)
+                    {
+                        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
+                            MapFragment().apply {
+                                arguments = Bundle().apply {
+                                    putSerializable("data",it)
+                                }
+                            }
+                        )?.addToBackStack(null)
+                            ?.commit()
+                    }
                     favouriteFragmentBinding?.rlFav?.adapter = adapter
                     favouriteFragmentBinding?.rlFav?.layoutManager = LinearLayoutManager(requireContext())
                     favouriteFragmentBinding?.rlFav?.itemAnimator = DefaultItemAnimator()

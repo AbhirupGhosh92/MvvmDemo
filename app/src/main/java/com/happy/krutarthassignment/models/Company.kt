@@ -1,6 +1,7 @@
 package com.happy.krutarthassignment.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Company(
 
@@ -12,4 +13,4 @@ data class Company(
 
 	@field:SerializedName("name")
 	val name: String? = null
-)
+): Serializable
