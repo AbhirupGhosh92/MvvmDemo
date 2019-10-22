@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KrutarthAssignment</string>
+
+    <string name="splash_text">KrutarthAssignment</string>
 </resources>
