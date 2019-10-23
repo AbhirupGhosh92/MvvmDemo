@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
 import com.happy.krutarthassignment.R
+import com.happy.krutarthassignment.SplashScreen
 import com.happy.krutarthassignment.fragment.TabFragment
 import com.happy.krutarthassignment.databinding.ActivityMainBinding
 
@@ -25,7 +26,7 @@ class DashboardActivity : AppCompatActivity() {
     {
         fragmentManager =supportFragmentManager
         fragmentManager?.beginTransaction()?.add(R.id.fragmentContainer,
-            TabFragment()
+            SplashScreen()
         )?.addToBackStack(null)
             ?.commit()
     }

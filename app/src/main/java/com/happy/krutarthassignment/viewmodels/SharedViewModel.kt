@@ -10,6 +10,8 @@ import com.happy.krutarthassignment.repository.Repository
 
 class SharedViewModel : ViewModel() {
 
+    lateinit var snippet : (response : ResponseModel) -> Unit
+
     fun initCacheFromServer(context: Context)
     {
        Repository.saveAllUsersFromNetwork(context)

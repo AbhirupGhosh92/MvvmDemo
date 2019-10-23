@@ -25,7 +25,6 @@ class MapFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_map,container,false)
-
         return dataBinding.root
     }
 

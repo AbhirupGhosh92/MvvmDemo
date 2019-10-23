@@ -59,16 +59,8 @@ class FavouriteFragment: Fragment(), View.OnClickListener {
                     userList.addAll(it.filter {
                         it.favourite
                     })
-                    adapter = CustomListAdapter(requireContext(),userList)
-                    {
-                        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
-                            MapFragment().apply {
-                                arguments = Bundle().apply {
-                                    putSerializable("data",it)
-                                }
-                            }
-                        )?.addToBackStack(null)
-                            ?.commit()
+                    adapter = CustomListAdapter(requireContext(),userList){
+                        sharedViewModel.snippet.invoke(it)
                     }
                     favouriteFragmentBinding?.rlFav?.adapter = adapter
                     favouriteFragmentBinding?.rlFav?.layoutManager = LinearLayoutManager(requireContext())

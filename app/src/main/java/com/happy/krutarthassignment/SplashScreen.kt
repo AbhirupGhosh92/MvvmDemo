@@ -3,31 +3,44 @@ package com.happy.krutarthassignment
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.happy.krutarthassignment.activity.DashboardActivity
 import com.happy.krutarthassignment.databinding.SplashScreenBinding
+import com.happy.krutarthassignment.fragment.TabFragment
 import kotlinx.android.synthetic.main.splash_screen.*
 
-class SplashScreen : AppCompatActivity() {
+class SplashScreen : Fragment() {
     private var mDelayHandler: Handler? = null
     private val SPLASH_DELAY: Long = 3000 //3 seconds
     private var binding: SplashScreenBinding? = null
 
 
-    internal val mRunnable: Runnable = Runnable {
-        if (!isFinishing) {
+    private val mRunnable: Runnable = Runnable {
 
-            val intent = Intent(applicationContext, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+
+           fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,TabFragment())?.commit()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.splash_screen)
+
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        binding = DataBindingUtil.inflate(inflater, R.layout.splash_screen,container,false)
         startAnimation()
 
         //Initialize the Handler
@@ -36,20 +49,21 @@ class SplashScreen : AppCompatActivity() {
         //Navigate with delay
         mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
 
+        return binding?.root
     }
 
     private fun startAnimation() {
 
 
-        var visible = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        var visible = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
 
 
         visible.reset()
         visible.setFillAfter(true)
 
 
-        screen.clearAnimation()
-        screen.startAnimation(visible)
+        binding?.screen?.clearAnimation()
+        binding?.screen?.startAnimation(visible)
 
     }
 

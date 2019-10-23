@@ -28,20 +28,31 @@ class TabFragment: Fragment() , View.OnClickListener  {
         tabFragmentBinding =  DataBindingUtil.inflate(inflater, R.layout.tab_fragment, container, false)
         tabFragmentBinding?.executePendingBindings()
         viewmodel = ViewModelProviders.of(requireActivity())[SharedViewModel::class.java]
+
+        setUpViewPager()
+
         return tabFragmentBinding?.root
     }
 
     override fun onStart() {
         super.onStart()
 
-        setUpViewPager()
-
     }
 
     override fun onResume() {
         super.onResume()
 
-        setUpViewPager()
+        viewmodel.snippet = {
+            fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
+                MapFragment().apply {
+                    arguments = Bundle().apply {
+                        putSerializable("data",it)
+                    }
+                }
+            )?.addToBackStack(null)
+                ?.commit()
+        }
+
     }
 
    private fun setUpViewPager()

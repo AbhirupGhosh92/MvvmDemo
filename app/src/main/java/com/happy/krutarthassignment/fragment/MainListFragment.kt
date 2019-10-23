@@ -63,14 +63,7 @@ class MainListFragment: Fragment() , View.OnClickListener  {
                {
                    userList.addAll(it)
                    adapter = CustomListAdapter(requireContext(),userList){
-                       fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
-                           MapFragment().apply {
-                               arguments = Bundle().apply {
-                                   putSerializable("data",it)
-                               }
-                           }
-                           )?.addToBackStack(null)
-                           ?.commit()
+                       sharedViewModel.snippet.invoke(it)
                    }
                    listFragmentBinding.rlFav.adapter = adapter
                    listFragmentBinding.rlFav.layoutManager = LinearLayoutManager(requireContext())
