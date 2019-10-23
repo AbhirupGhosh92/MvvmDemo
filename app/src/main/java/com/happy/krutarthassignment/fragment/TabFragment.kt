@@ -43,7 +43,7 @@ class TabFragment: Fragment() , View.OnClickListener  {
         super.onResume()
 
         viewmodel.snippet = {
-            fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,
+            fragmentManager?.beginTransaction()?.add(R.id.fragmentContainer,
                 MapFragment().apply {
                     arguments = Bundle().apply {
                         putSerializable("data",it)

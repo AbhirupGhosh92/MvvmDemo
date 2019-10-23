@@ -24,7 +24,7 @@ class SplashScreen : Fragment() {
     private val mRunnable: Runnable = Runnable {
 
 
-           fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,TabFragment())?.commit()
+           fragmentManager?.beginTransaction()?.add(R.id.fragmentContainer,TabFragment())?.commit()
 
     }
 
